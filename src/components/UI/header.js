@@ -28,7 +28,7 @@ const header = () => {
             <Navbar.Toggle aria-controls='responsive-navbar-nav' />
             <Navbar.Collapse id='responsive-navbar-nav'>
               <Nav className='mr-auto'>
-                <Nav.Link href='#Home'>Home</Nav.Link>
+                <Nav.Link href='#Home'>HOME</Nav.Link>
                 <Nav.Link href='#SHOP'>SHOP</Nav.Link>
                 <Nav.Link href='#CART'>CART</Nav.Link>
                 <Nav.Link href='#ORDER'>ORDER</Nav.Link>
@@ -38,7 +38,7 @@ const header = () => {
               <Form inline>
                 <FormControl
                   type='text'
-                  placeholder='Search for fruit'
+                  placeholder='Search...'
                   className='mr-sm-2'
                 />
                 <Button variant='info'>Search</Button>
