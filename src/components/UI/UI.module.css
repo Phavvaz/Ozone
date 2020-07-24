@@ -1,4 +1,9 @@
 .container {
   margin-top: 2rem;
-  margin-left: 4rem;
+  margin-left: 1rem;
+}
+
+.Footer {
+  margin-top: 2rem;
+  align-items: center;
 }

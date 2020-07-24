@@ -1,10 +1,15 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Home from './containers/Home/Home';
+import Admin from './containers/Admin/Admin';
 
 const App = () => {
   return (
     <div>
-      <Home />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/admin/*' element={<Admin />} />
+      </Routes>
     </div>
   );
 };
