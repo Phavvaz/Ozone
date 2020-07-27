@@ -1,0 +1,78 @@
+.card {
+  padding: 10rem 0;
+  color: var(--green);
+
+  &Cards {
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(25rem, 1fr)
+    );
+    grid-gap: 4rem;
+  }
+
+  &Items {
+    box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.2);
+    border-radius: 1rem;
+    overflow: hidden;
+    display: flex;
+    flex-flow: column;
+  }
+
+  &Img {
+    height: 20rem;
+    overflow: hidden;
+
+    &:hover img {
+      transform: scale(1.5);
+    }
+
+    & img {
+      height: 100%;
+      width: 100%;
+      transition: all 0.5s;
+    }
+  }
+
+  &Des {
+    padding: 2rem;
+  }
+
+  &Name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    & span {
+      text-transform: capitalize;
+    }
+  }
+
+  &Descript {
+  }
+
+  &Btn:link,
+  &Btn:visited {
+    text-decoration: none;
+    margin: 2rem 2rem;
+    padding: 1rem 0;
+    background-color: var(--green);
+    color: #ffffff;
+    border: 2px solid var(--green);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    border-radius: 0.5rem;
+    transition: all 0.5s;
+
+    &:hover {
+      background-color: #ffffff;
+      color: var(--green);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

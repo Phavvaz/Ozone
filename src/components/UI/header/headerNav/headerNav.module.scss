@@ -1,0 +1,60 @@
+.headerNav {
+  display: flex;
+  padding: 4rem 0;
+
+  &List {
+    list-style: none;
+    justify-content: space-between;
+    align-items: center;
+    flex: 0 0 40%;
+    display: flex;
+    margin-right: auto;
+  }
+
+  &Items {
+  }
+
+  &Link:link,
+  &Link:visited {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--green);
+  }
+
+  &Link:hover,
+  &Link.active,
+  &Link:active {
+    color: var(--light-green);
+    text-decoration: underline;
+  }
+
+  &Form {
+    & input {
+      margin-right: 2rem;
+      padding: 1rem 2rem;
+      border: 2px solid var(--green);
+      border-radius: 1rem;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  &Btn {
+    color: white;
+    background-color: var(--green);
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--light-green);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

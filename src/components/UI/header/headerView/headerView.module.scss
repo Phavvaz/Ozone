@@ -1,0 +1,51 @@
+.headerView {
+  height: 60rem;
+  background-image: linear-gradient(
+      to bottom,
+      #075f0bcc,
+      #66da6ccc
+    ),
+    url(../../../../assets/images/headerbg.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  color: White;
+
+  &Heading {
+    font-size: 10rem;
+    letter-spacing: 2rem;
+    animation: in 2s;
+    animation-fill-mode: backwards;
+  }
+
+  &Para {
+    letter-spacing: 0.1rem;
+    animation: drop 1s 2s;
+    animation-fill-mode: backwards;
+  }
+}
+
+@keyframes in {
+  from {
+    letter-spacing: 20rem;
+  }
+
+  to {
+    letter-spacing: 2rem;
+  }
+}
+
+@keyframes drop {
+  from {
+    opacity: 0;
+    transform: translateY(5rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

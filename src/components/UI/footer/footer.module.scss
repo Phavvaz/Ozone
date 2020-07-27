@@ -1,0 +1,55 @@
+.footer {
+  background-color: #3b3b3b;
+  color: #aaaaaa;
+  padding: 4rem 0;
+  font-size: 1.4rem;
+
+  &Btm {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  &Hrs {
+    flex: 0 0 30%;
+  }
+
+  &H3 {
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+  }
+
+  &List {
+    list-style: none;
+  }
+
+  &Items {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  &End {
+  }
+
+  &Icon {
+    margin-bottom: 4rem;
+
+    & svg {
+      fill: #aaaaaa;
+      height: 3rem;
+      width: 3rem;
+
+      &:hover {
+        fill: var(--green);
+      }
+    }
+  }
+
+  &Link:link,
+  &Link:visited {
+    &:not(:last-child) {
+      margin-right: 2rem;
+    }
+  }
+}
