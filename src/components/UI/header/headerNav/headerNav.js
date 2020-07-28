@@ -1,54 +1,82 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import classes from './headerNav.module.scss';
 import Contain from '../../../contain/contain';
 import Logo from '../../../Logo/logo';
 
-const links = [
-  'home',
-  'shop',
-  'cart',
-  'order',
-  'blog',
-  'about'
-];
-
-const headerNav = () => {
+const HeaderNav = props => {
+  // const links = ['home', 'cart', 'orders', 'blog', 'about'];
   return (
-    <div>
-      <Contain>
-        <div className={classes.headerNav}>
-          <Logo />
+    <Contain>
+      <div className={classes.headerNav}>
+        <Logo />
 
-          <ul className={classes.headerNavList}>
+        {/* <nav >
             {links.map((cur, i) => (
               <li
                 className={classes.headerNavItems}
                 key={i}
               >
-                <a
+                <Link
+                  to="./{cur}"
                   className={classes.headerNavLink}
-                  href={`#${cur}`}
                 >
-                  {cur}
-                </a>
+                  {cur.toUpperCase()}
+                </Link>
               </li>
             ))}
-          </ul>
+          </nav> */}
+        <nav>
+          <div className={classes.headerNavItems}>
+            <Link to="/" className={classes.headerNavLink}>
+              Home
+            </Link>
 
+            <Link
+              to="/cart"
+              className={classes.headerNavLink}
+            >
+              Cart
+            </Link>
+
+            <Link
+              to="/orders"
+              className={classes.headerNavLink}
+            >
+              Orders
+            </Link>
+
+            <Link
+              to="/blog"
+              className={classes.headerNavLink}
+            >
+              Blog
+            </Link>
+
+            <Link
+              to="/aboutUs"
+              className={classes.headerNavLink}
+            >
+              About Us
+            </Link>
+          </div>
+        </nav>
+        {props.ishome ? (
           <form className={classes.headerNavForm}>
             <input
               type="text"
               placeholder="Search..."
               className="mr-sm-2"
             />
+
             <button className={classes.headerNavBtn}>
               Search
             </button>
           </form>
-        </div>
-      </Contain>
-    </div>
+        ) : null}
+      </div>
+    </Contain>
   );
 };
 
-export default headerNav;
+export default HeaderNav;

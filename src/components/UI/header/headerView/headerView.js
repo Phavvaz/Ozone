@@ -2,13 +2,13 @@ import React from 'react';
 import Contain from '../../../contain/contain';
 import classes from './headerView.module.scss';
 
-const headerView = () => {
+const HeaderView = () => {
   return (
     <div>
       <Contain>
         <div className={classes.headerView}>
           <h1 className={classes.headerViewHeading}>
-            ozone
+            Ozone
           </h1>
 
           <p className={classes.headerViewPara}>
@@ -20,4 +20,4 @@ const headerView = () => {
   );
 };
 
-export default headerView;
+export default HeaderView;

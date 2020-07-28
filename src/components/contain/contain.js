@@ -1,10 +1,10 @@
 import React from 'react';
 import classes from './contain.module.scss';
 
-const contain = props => {
+const Contain = props => {
   return (
     <div className={classes.contain}>{props.children}</div>
   );
 };
 
-export default contain;
+export default Contain;

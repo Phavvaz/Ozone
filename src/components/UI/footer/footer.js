@@ -4,19 +4,18 @@ import Contain from '../../contain/contain';
 import Logo from '../../Logo/logo';
 import Icons from '../../../assets/images/icons.svg';
 
-const days = [
-  'MONDAY',
-  'TUESDAY',
-  'WEDNESDAY',
-  'THURSDAY',
-  'FRIDAY',
-  'SATURDAY',
-  'SUNDAY'
-];
+const Footer = props => {
+  const days = [
+    'MONDAY',
+    'TUESDAY',
+    'WEDNESDAY',
+    'THURSDAY',
+    'FRIDAY',
+    'SATURDAY',
+    'SUNDAY'
+  ];
 
-const icons = ['facebook2', 'instagram', 'twitter'];
-
-const Footer = () => {
+  const icons = ['facebook2', 'instagram', 'twitter'];
   return (
     <footer className={classes.footer}>
       <Contain>
@@ -43,6 +42,7 @@ const Footer = () => {
                 <a
                   href={cur}
                   className={classes.footerLink}
+                  key={i}
                 >
                   <svg key={i}>
                     <use
@@ -52,7 +52,10 @@ const Footer = () => {
                 </a>
               ))}
             </div>
-            <p>&copy; copyright 2020</p>
+            <p>
+              &copy; copyright 2020
+              {new Date().getFullYear}
+            </p>
           </div>
         </div>
       </Contain>

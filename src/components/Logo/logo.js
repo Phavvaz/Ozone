@@ -1,15 +1,17 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import ozone from '../../assets/images/ozone_2.png';
 import classes from './logo.module.scss';
 
-const logo = () => {
+const Logo = props => {
+  const navigate = useNavigate();
   return (
     <div className={classes.logo}>
-      <a href="#home">
+      <button onClick={() => navigate('/')}>
         <img src={ozone} alt="Ozone" />
-      </a>
+      </button>
     </div>
   );
 };
 
-export default logo;
+export default Logo;

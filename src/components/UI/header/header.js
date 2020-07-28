@@ -1,10 +1,10 @@
 import React from 'react';
 import HeaderNav from './headerNav/headerNav';
 
-const header = () => {
+const header = props => {
   return (
     <header>
-      <HeaderNav />
+      <HeaderNav ishome={props.ishome} />
     </header>
   );
 };
