@@ -2,24 +2,33 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-// import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
-// import { Provider } from 'react-redux';
-// import thunk from 'redux-thunk';
+import {
+  createStore,
+  applyMiddleware,
+  combineReducers
+} from 'redux';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import fruitsReducer from './store/reducers/fruitsReducer';
 
-// const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  fruits: fruitsReducer
+});
 
-// const composeEnhancers =
-//   process.env.NODE_ENV === 'development'
-//     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-//     : null || compose;
-// const store = createStore(
-//   rootReducer,
-//   /* preloadedState, */ composeEnhancers(applyMiddleware(thunk))
-// );
+const store = createStore(
+  rootReducer,
+  composeWithDevTools(
+    applyMiddleware(thunk)
+    // other store enhancers if any
+  )
+);
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>,
   document.getElementById('root')
 );

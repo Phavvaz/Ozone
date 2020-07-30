@@ -10,12 +10,14 @@ import DashBoard from './containers/Admin/DashBoard/Dashboard';
 import Sales from './containers/Admin/Sales/Sales';
 import Fruit from './containers/Admin/Fruit/Fruit';
 import AdminBlog from './containers/Admin/Blog/Blog';
+import FruitDetail from './containers/Home/FruitDetail/FruitDetail';
 import './App.scss';
 
 const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/:fruit" element={<FruitDetail />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/orders" element={<Orders />} />
       <Route path="/blog" element={<Blog />} />

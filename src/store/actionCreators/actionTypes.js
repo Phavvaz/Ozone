@@ -1,0 +1,4 @@
+// export const INIT_HOME_PAGE = 'INIT_HOME_PAGE';
+export const INIT_HOME_PAGE_SUCCESS =
+  'INIT_HOME_PAGE_SUCCESS';
+// export const INIT_HOME_PAGE_FAILS = 'INIT_HOME_PAGE_FAILS';
