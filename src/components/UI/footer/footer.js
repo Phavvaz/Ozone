@@ -53,8 +53,7 @@ const Footer = props => {
               ))}
             </div>
             <p>
-              &copy; copyright 2020
-              {new Date().getFullYear}
+              &copy; copyright {new Date().getFullYear()}
             </p>
           </div>
         </div>

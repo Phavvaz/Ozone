@@ -1,12 +1,14 @@
+@import '../../../../variables';
+
 .headerView {
-  height: 60rem;
+  height: 50rem;
   background-image: linear-gradient(
       to bottom,
       #075f0bcc,
       #66da6ccc
     ),
     url(../../../../assets/images/headerbg.jpg);
-  background-size: 100%;
+  background-size: cover;
   background-repeat: no-repeat;
   display: flex;
   flex-flow: column;
@@ -19,10 +21,15 @@
     letter-spacing: 2rem;
     animation: in 2s;
     animation-fill-mode: backwards;
+
+    @include respond(phone) {
+      font-size: 8rem;
+    }
   }
 
   &Para {
     letter-spacing: 0.1rem;
+    text-align: center;
     animation: drop 1s 2s;
     animation-fill-mode: backwards;
   }

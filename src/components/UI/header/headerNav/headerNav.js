@@ -1,82 +1,81 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import classes from './headerNav.module.scss';
 import Contain from '../../../contain/contain';
 import Logo from '../../../Logo/logo';
+import icon from '../../../../assets/images/shops.svg';
+import Nav from './Nav/Nav';
 
-const HeaderNav = props => {
-  // const links = ['home', 'cart', 'orders', 'blog', 'about'];
-  return (
-    <Contain>
-      <div className={classes.headerNav}>
-        <Logo />
+class HeaderNav extends Component {
+  state = {
+    links: [
+      { name: 'Home', path: '' },
+      { name: 'Cart', path: 'cart' },
+      { name: 'Orders', path: 'orders' },
+      { name: 'Blog', path: 'blog' },
+      { name: 'About Us', path: 'aboutUs' }
+    ],
+    showed: 'none'
+  };
 
-        {/* <nav >
-            {links.map((cur, i) => (
+  clicked = () => {
+    this.setState({
+      showed: this.state.showed === 'none' ? 'flex' : 'none'
+    });
+  };
+
+  render() {
+    return (
+      <Contain>
+        <div className={classes.headerNav}>
+          <Nav
+            clicked={this.clicked}
+            show={this.state.showed}
+          />
+          <Logo />
+
+          <ul className={classes.headerNavList}>
+            {this.state.links.map((cur, i) => (
               <li
                 className={classes.headerNavItems}
                 key={i}
               >
                 <Link
-                  to="./{cur}"
+                  to={`/${cur.path}`}
                   className={classes.headerNavLink}
                 >
-                  {cur.toUpperCase()}
+                  {cur.name.toUpperCase()}
                 </Link>
               </li>
             ))}
-          </nav> */}
-        <nav>
-          <div className={classes.headerNavItems}>
-            <Link to="/" className={classes.headerNavLink}>
-              Home
-            </Link>
+          </ul>
 
-            <Link
-              to="/cart"
-              className={classes.headerNavLink}
-            >
-              Cart
-            </Link>
+          {this.props.ishome ? (
+            <form className={classes.headerNavForm}>
+              <input
+                type="text"
+                placeholder="Search..."
+                className="mr-sm-2"
+              />
 
-            <Link
-              to="/orders"
-              className={classes.headerNavLink}
-            >
-              Orders
-            </Link>
+              <button className={classes.headerNavBtn}>
+                Search
+              </button>
+            </form>
+          ) : null}
 
-            <Link
-              to="/blog"
-              className={classes.headerNavLink}
-            >
-              Blog
-            </Link>
-
-            <Link
-              to="/aboutUs"
-              className={classes.headerNavLink}
-            >
-              About Us
-            </Link>
-          </div>
-        </nav>
-        {props.ishome ? (
-          <form className={classes.headerNavForm}>
-            <input
-              type="text"
-              placeholder="Search..."
-              className="mr-sm-2"
-            />
-
-            <button className={classes.headerNavBtn}>
-              Search
-            </button>
-          </form>
-        ) : null}
-      </div>
-    </Contain>
-  );
-};
+          <button
+            className={classes.headerNavNavbtn}
+            onClick={this.clicked}
+          >
+            <svg>
+              <use xlinkHref={`${icon}#icon-menu`} />
+            </svg>
+          </button>
+        </div>
+      </Contain>
+    );
+  }
+}
 
 export default HeaderNav;

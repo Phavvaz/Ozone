@@ -1,3 +1,5 @@
+@import '../../../variables';
+
 .footer {
   background-color: #3b3b3b;
   color: #aaaaaa;
@@ -8,10 +10,26 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+
+    @include respond(phone) {
+      flex-flow: column;
+      align-items: center;
+    }
   }
 
   &Hrs {
     flex: 0 0 30%;
+
+    @include respond(phone) {
+      flex: none;
+      margin: 5rem 0;
+    }
+
+    & p {
+      @include respond(phone) {
+        margin-right: 5rem;
+      }
+    }
   }
 
   &H3 {
@@ -29,7 +47,8 @@
     margin-bottom: 1rem;
   }
 
-  &End {}
+  &End {
+  }
 
   &Icon {
     margin-bottom: 4rem;

@@ -1,17 +1,21 @@
+@import '../../../../variables';
+
 .headerNav {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 4rem 0;
 
   &List {
-    list-style: none;
     justify-content: space-between;
+    list-style: none;
     align-items: center;
-    flex: 0 0 40%;
+    flex: 0 0 35%;
     display: flex;
-    margin-right: auto;
-  }
 
-  &Items {
+    @include respond(phone) {
+      display: none;
+    }
   }
 
   &Link:link,
@@ -29,6 +33,10 @@
   }
 
   &Form {
+    @include respond(phone) {
+      display: none;
+    }
+
     & input {
       margin-right: 2rem;
       padding: 1rem 2rem;
@@ -55,6 +63,27 @@
 
     &:focus {
       outline: none;
+    }
+  }
+
+  &Navbtn {
+    display: none;
+    background-color: transparent;
+    border: none;
+    color: var(--green);
+
+    & svg {
+      fill: currentColor;
+      height: 4rem;
+      width: 4rem;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    @include respond(phone) {
+      display: block;
     }
   }
 }

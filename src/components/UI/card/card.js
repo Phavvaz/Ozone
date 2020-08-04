@@ -10,10 +10,13 @@ const Card = props => {
       <section className={classes.card}>
         <div className={classes.cardCards}>
           {props.Fruits.map(fruit => (
-            <Link to={`/${fruit.name}`}>
+            <Link
+              className={classes.cardLink}
+              to={`/${fruit.name}`}
+              key={fruit.id}
+            >
               <button
                 className={classes.cardItems}
-                key={fruit.id}
                 // onClick={() =>
                 //   navigate('/:fruit', {
                 //     replace: true,
@@ -30,17 +33,17 @@ const Card = props => {
 
                   <div className={classes.cardDes}>
                     <div className={classes.cardName}>
-                      <h1>NAME:</h1>
+                      <h3>NAME:</h3>
                       <span>{fruit.name}</span>
                     </div>
 
                     <div className={classes.cardName}>
-                      <h1>PRICE:</h1>
+                      <h3>PRICE:</h3>
                       <span>{`${fruit.price}$`}</span>
                     </div>
 
                     <div className={classes.cardDescript}>
-                      <h1>DESCRIPTION:</h1>
+                      <h3>DESCRIPTION:</h3>
                       <span>{fruit.description}</span>
                     </div>
                   </div>
