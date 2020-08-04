@@ -33,6 +33,7 @@ const Nav = props => {
               <Link
                 to={`/${cur.path}`}
                 className={classes.NavLink}
+                onClick={props.linked}
               >
                 {cur.name.toUpperCase()}
               </Link>

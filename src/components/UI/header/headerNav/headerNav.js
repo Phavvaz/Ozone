@@ -24,6 +24,12 @@ class HeaderNav extends Component {
     });
   };
 
+  linked = () => {
+    this.setState({
+      showed: 'none'
+    });
+  };
+
   render() {
     return (
       <Contain>
@@ -31,6 +37,7 @@ class HeaderNav extends Component {
           <Nav
             clicked={this.clicked}
             show={this.state.showed}
+            linked={this.linked}
           />
           <Logo />
 
