@@ -4,6 +4,9 @@ import '@firebase/auth';
 import '@firebase/storage';
 // import '@firebase/analytics';
 
+// email -phavvaz506@gmail.com
+// password -AIzaSyDUe2Ins
+
 const firebaseConfig = {
   apiKey: 'AIzaSyDC3twmWOEDRI5TA3d1OBuvYU657fuMvQo',
   authDomain: 'ozone-61988.firebaseapp.com',
