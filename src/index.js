@@ -10,10 +10,14 @@ import {
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import 'filepond/dist/filepond.min.css';
+import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
 import fruitsReducer from './store/reducers/fruitsReducer';
+import adminAuthReducer from './store/reducers/adminAuth';
 
 const rootReducer = combineReducers({
-  fruits: fruitsReducer
+  fruits: fruitsReducer,
+  adminAuth: adminAuthReducer
 });
 
 const store = createStore(

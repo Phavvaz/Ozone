@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import {
   useSelector,
   useDispatch,
@@ -11,13 +11,28 @@ import HeaderView from '../../components/UI/header/headerView/headerView';
 import Card from '../../components/UI/card/card';
 
 const Home = props => {
-  // const navigate = useNavigate();
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(action.initHomePageSuccess());
-  //   console.log('dispatched');
-  // }, [dispatch]);
-  const fruits = useSelector(state => state.fruits.fruits);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(action.getAllFruits());
+  }, [dispatch]);
+  const isLoading = useSelector(
+    state => state.fruits.loading,
+    shallowEqual
+  );
+
+  const docsSize = useSelector(
+    state =>
+      state.fruits.docSize != null && state.fruits.docSize
+  );
+
+  const fruitsData = useSelector(
+    state =>
+      state.fruits.fruitsData.length === docsSize &&
+      state.fruits.fruitsData,
+    shallowEqual
+  );
+  console.log(docsSize);
+  console.log(fruitsData);
 
   return (
     <>
@@ -25,7 +40,7 @@ const Home = props => {
         <Layout ishome="true">
           <main>
             <HeaderView />
-            <Card Fruits={fruits} />
+            <Card fruits={fruitsData} />
           </main>
         </Layout>
       </div>
