@@ -55,7 +55,6 @@ const Admin = () => {
     },
     validationSchema: Validation,
     onSubmit: values => {
-      // alert(JSON.stringify(values, null, 2));
       console.log(values);
       const email = values.email;
       const password = values.password;
@@ -64,33 +63,31 @@ const Admin = () => {
         dispatch(action.authConfirm(email, password));
       } catch (error) {
         console.log(error);
-        // navigate('/');
         return;
       } finally {
         navigate('dashboard', { replace: true });
       }
-      // navigate('dashboard', { replace: true });
     }
   });
   return (
     <>
       <AdminLayout>
-        {isLogin ? (
-          <Routes>
-            <Route
-              path="/dashboard/*"
-              element={<DashBoard />}
-            />
-            <Route path="/sales" element={<Sales />} />
-            <Route path="/fruit" element={<Fruit />} />
-            <Route
-              path="/fruit/addFruit"
-              element={<AddFruit />}
-            />
-            <Route path="/blog" element={<AdminBlog />} />
-            <Route path="*" element={<UnknownRoutes />} />
-          </Routes>
-        ) : null}
+        {/* {isLogin ? ( */}
+        <Routes>
+          <Route
+            path="/dashboard/*"
+            element={<DashBoard />}
+          />
+          <Route path="/sales" element={<Sales />} />
+          <Route path="/fruit" element={<Fruit />} />
+          <Route
+            path="/fruit/addFruit"
+            element={<AddFruit />}
+          />
+          <Route path="/blog" element={<AdminBlog />} />
+          <Route path="*" element={<UnknownRoutes />} />
+        </Routes>
+        {/* ) : null} */}
         {isLogin ? null : (
           <div>
             <form

@@ -29,27 +29,29 @@ const AdminLayout = props => {
           <nav>
             <div>
               <div>
-                {isLogin ? (
-                  <Link to="dashboard">DashBoard</Link>
-                ) : null}
+                {/* {isLogin ? ( */}
+                <Link to="dashboard">DashBoard</Link>
+                {/* ) : null} */}
               </div>
 
               <div>
-                {isLogin ? (
-                  <Link to="sales">Sales</Link>
-                ) : null}
+                {/* {isLogin ? ( */}
+                <Link to="sales">Sales</Link>
+                {/* ) : null} */}
               </div>
 
               <div>
-                {isLogin ? (
-                  <Link to="fruit">Fruit</Link>
-                ) : null}
-                {isLogin ? (
-                  <Link to="fruit/addFruit">Add Fruit</Link>
-                ) : null}
+                {/* {isLogin ? ( */}
+                <Link to="fruit">Fruit</Link>
+                {/* ): null} */}
+                {/* {isLogin ? ( */}
+                <Link to="fruit/addFruit">Add Fruit</Link>
+                {/* ) : null} */}
               </div>
 
-              {isLogin ? <Link to="blog">Blog</Link> : null}
+              {/* {isLogin ?  */}
+              <Link to="blog">Blog</Link>
+              {/* : null} */}
             </div>
           </nav>
 

@@ -71,17 +71,6 @@ const AddFruit = () => {
       } else {
         navigate('../../fruit');
       }
-
-      // try {
-      //   dispatch(
-      //     action.addFruit({ name, description, price })
-      //   );
-      // } catch (error) {
-      //   console.log(error);
-      //   return;
-      // } finally {
-      //   navigate('../../fruit');
-      // }
     }
   });
   return (

@@ -56,9 +56,9 @@ const Fruit = () => {
     <>
       {fruitsData &&
         fruitsData.map(fruit => (
-          <>
-            <div key={fruit.id}>
-              {/* Needs better styling */}
+          <div key={fruit.id}>
+            {/* Needs better styling */}
+            <>
               <div className={classes.cardImg}>
                 {imagesUrl ? (
                   <img
@@ -92,8 +92,8 @@ const Fruit = () => {
                   Delete
                 </button>
               </div>
-            </div>
-          </>
+            </>
+          </div>
         ))}
     </>
   );
