@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+*All fruit images file now fetched from our server including the homepage.
+*Work first on the admin authentication/login page styling, then follow by the "Add_Fruit" page styling too.
+*The uncommnet all "{isLogin? ... :null}" on admin.js, adminlayout.js files before proceeding to "Fruit.js"(fruit page) file.
+You must uncomment them and also login to be able to work on fruit page 
 ## Available Scripts
 
 In the project directory, you can run:
