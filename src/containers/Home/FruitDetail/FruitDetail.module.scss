@@ -30,6 +30,10 @@
     overflow: hidden;
     margin-bottom: 5rem;
 
+    @include respond(phone) {
+      height: 30rem;
+    }
+
     & img {
       width: 100%;
       height: 100%;
@@ -43,6 +47,16 @@
     justify-content: flex-start;
     font-size: 2rem;
     margin-bottom: 2rem;
+
+    &3 {
+      @include respond(phone) {
+        flex-flow: column;
+      }
+    }
+
+    @include respond(phone) {
+      justify-content: space-between;
+    }
 
     & h3 {
       margin-right: 3rem;

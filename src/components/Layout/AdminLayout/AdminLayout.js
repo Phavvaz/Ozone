@@ -9,7 +9,7 @@ import Logo from '../../Logo/logo';
 import Contain from '../../contain/contain';
 import * as action from '../../../store/index';
 
-// import Classes from './adminLayout.module.css';
+import styles from './adminLayout.module.scss';
 
 const AdminLayout = props => {
   const dispatch = useDispatch();

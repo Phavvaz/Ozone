@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import classes from './card.module.scss';
 import Contain from '../../contain/contain';
 import * as action from '../../../store/index';
+import Spinner from '../../spinner/spinner';
 
 const Card = props => {
   const { fruits } = { ...props };
@@ -41,7 +42,7 @@ const Card = props => {
       <section className={classes.card}>
         <div className={classes.cardCards}>
           {fruits &&
-            fruits.map((fruit, i) => (
+            fruits.map(fruit => (
               <Link
                 className={classes.cardLink}
                 to={`/${fruit.fruit.name}+${fruit.id}`}
@@ -67,7 +68,7 @@ const Card = props => {
                           alt={fruit.fruit.name}
                         />
                       ) : (
-                        'spinner'
+                        <Spinner />
                       )}
                     </div>
 

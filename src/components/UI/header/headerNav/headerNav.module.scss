@@ -6,6 +6,10 @@
   align-items: center;
   padding: 4rem 0;
 
+  @include respond(phone) {
+    padding: 2rem 0;
+  }
+
   &List {
     justify-content: space-between;
     list-style: none;

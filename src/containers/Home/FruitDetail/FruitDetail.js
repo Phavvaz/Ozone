@@ -61,7 +61,7 @@ const FruitDetail = props => {
         <div className={classes.FruitDetail}>
           <h1 className={classes.FruitDetailHeading}>
             {' '}
-            This the fruitDetail page
+            This the fruit detail page
           </h1>
           <div className={classes.FruitDetailItem}>
             <div className={classes.FruitDetailImage}>
@@ -77,7 +77,12 @@ const FruitDetail = props => {
               <h3>PRICE:</h3>
               <span>{fruitData.price}</span>
             </div>
-            <div className={classes.FruitDetailDes}>
+            <div
+              className={[
+                classes.FruitDetailDes,
+                classes.FruitDetailDes3
+              ].join(' ')}
+            >
               <h3>DESCRIPTION:</h3>
               <span>{fruitData.description}</span>
             </div>

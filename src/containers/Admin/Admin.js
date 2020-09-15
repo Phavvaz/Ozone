@@ -72,22 +72,22 @@ const Admin = () => {
   return (
     <>
       <AdminLayout>
-        {/* {isLogin ? ( */}
-        <Routes>
-          <Route
-            path="/dashboard/*"
-            element={<DashBoard />}
-          />
-          <Route path="/sales" element={<Sales />} />
-          <Route path="/fruit" element={<Fruit />} />
-          <Route
-            path="/fruit/addFruit"
-            element={<AddFruit />}
-          />
-          <Route path="/blog" element={<AdminBlog />} />
-          <Route path="*" element={<UnknownRoutes />} />
-        </Routes>
-        {/* ) : null} */}
+        {isLogin ? (
+          <Routes>
+            <Route
+              path="/dashboard/*"
+              element={<DashBoard />}
+            />
+            <Route path="/sales" element={<Sales />} />
+            <Route path="/fruit" element={<Fruit />} />
+            <Route
+              path="/fruit/addFruit"
+              element={<AddFruit />}
+            />
+            <Route path="/blog" element={<AdminBlog />} />
+            <Route path="*" element={<UnknownRoutes />} />
+          </Routes>
+        ) : null}
         {isLogin ? null : (
           <div>
             <form

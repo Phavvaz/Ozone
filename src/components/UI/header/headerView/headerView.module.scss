@@ -2,9 +2,11 @@
 
 .headerView {
   height: 50rem;
-  background-image: linear-gradient(to bottom,
+  background-image: linear-gradient(
+      to bottom,
       #075f0bcc,
-      #66da6ccc),
+      #66da6ccc
+    ),
     url(../../../../assets/images/headerbg-4362.jpg);
   background-size: cover;
   background-repeat: no-repeat;
@@ -13,6 +15,10 @@
   justify-content: center;
   align-items: center;
   color: White;
+
+  @include respond(phone) {
+    height: 40rem;
+  }
 
   &Heading {
     font-size: 10rem;
