@@ -3,7 +3,13 @@ import classes from './contain.module.scss';
 
 const Contain = props => {
   return (
-    <div className={classes.contain}>{props.children}</div>
+    <div
+      className={[classes.contain, props.addStyle].join(
+        ' '
+      )}
+    >
+      {props.children}
+    </div>
   );
 };
 

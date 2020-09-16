@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 import {
   useSelector,
   useDispatch,
@@ -20,52 +20,47 @@ const AdminLayout = props => {
   const isLogin = useSelector(
     state => state.adminAuth.result != null
   );
+
+  const stateLinks = useState([
+    { link: 'dashboard', text: 'DashBoard' },
+    { link: 'sales', text: 'Sales' },
+    { link: 'fruit', text: 'Fruit' },
+    { link: 'fruit/addFruit', text: 'Add Fruit' },
+    { link: 'blog', text: 'Blog' }
+  ])[0];
   return (
     <>
       <div>
-        <Contain>
+        <Contain addStyle={styles.AdminLayoutHeading}>
           <Logo />
 
-          <nav>
-            <div>
+          {isLogin ? (
+            <nav className={styles.AdminLayoutNav}>
+              {stateLinks.map(cur => (
+                <NavLink
+                  className={styles.AdminLayoutLink}
+                  to={cur.link}
+                >
+                  {cur.text}
+                </NavLink>
+              ))}
+            </nav>
+          ) : null}
+
+          {isLogin ? (
+            <>
               <div>
-                {/* {isLogin ? ( */}
-                <Link to="dashboard">DashBoard</Link>
-                {/* ) : null} */}
+                <h1>Welcome: admin</h1>
               </div>
-
               <div>
-                {/* {isLogin ? ( */}
-                <Link to="sales">Sales</Link>
-                {/* ) : null} */}
+                <h1>
+                  Date:{' '}
+                  {new Date().toDateString() +
+                    new Date().toLocaleTimeString()}
+                </h1>
               </div>
-
-              <div>
-                {/* {isLogin ? ( */}
-                <Link to="fruit">Fruit</Link>
-                {/* ): null} */}
-                {/* {isLogin ? ( */}
-                <Link to="fruit/addFruit">Add Fruit</Link>
-                {/* ) : null} */}
-              </div>
-
-              {/* {isLogin ?  */}
-              <Link to="blog">Blog</Link>
-              {/* : null} */}
-            </div>
-          </nav>
-
-          <hr />
-          <div>
-            <h1>Welcome: admin</h1>
-          </div>
-          <div>
-            <h1>
-              Date:{' '}
-              {new Date().toDateString() +
-                new Date().toLocaleTimeString()}
-            </h1>
-          </div>
+            </>
+          ) : null}
           {isLogin ? (
             <div>
               <button
@@ -78,9 +73,8 @@ const AdminLayout = props => {
               </button>
             </div>
           ) : null}
-
-          {props.children}
         </Contain>
+        {props.children}
       </div>
     </>
   );

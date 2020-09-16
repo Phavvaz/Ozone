@@ -1,2 +1,29 @@
-.adminLayout {
+.AdminLayout {
+  &Heading {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+  }
+
+  &Nav {
+    margin-left: auto;
+  }
+
+  &Link:link,
+  &Link:visited {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--green);
+
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+
+  &Link:hover,
+  &Link.active,
+  &Link:active {
+    color: var(--light-green);
+    text-decoration: underline;
+  }
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   useNavigate,
   Outlet,
@@ -20,6 +20,9 @@ import AdminBlog from './Blog/Blog';
 import UnknownRoutes from './404_Routes';
 import AddFruit from './Fruit/AddFruit/AddFruit';
 import * as action from '../../store/index';
+import styles from './admin.module.scss';
+import Contain from '../../components/contain/contain';
+import Spinner from '../../components/spinner/spinner';
 
 const Admin = () => {
   const dispatch = useDispatch();
@@ -69,6 +72,7 @@ const Admin = () => {
       }
     }
   });
+  const setFormState = useState(['email', 'password'])[0];
   return (
     <>
       <AdminLayout>
@@ -89,56 +93,51 @@ const Admin = () => {
           </Routes>
         ) : null}
         {isLogin ? null : (
-          <div>
+          <Contain className={styles.Admin}>
             <form
               onReset={formik.handleReset}
               onSubmit={formik.handleSubmit}
+              className={styles.AdminForm}
             >
-              <div>
-                <label htmlFor="email">Email</label>
-              </div>
-              <div>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.email}
-                />
-              </div>
-              {formik.touched.email &&
-              formik.errors.email ? (
-                <div>{formik.errors.email}</div>
-              ) : null}
-
-              <div>
-                <label htmlFor="password">Password</label>
-              </div>
-              <div>
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.password}
-                />
-              </div>
-              {formik.touched.password &&
-              formik.errors.password ? (
-                <div>{formik.errors.password}</div>
-              ) : null}
-
-              {loadingState ? (
-                <div>
-                  <h1>Spinner</h1>
+              {setFormState.map(cur => (
+                <div
+                  className={styles.AdminLogin}
+                  key={cur}
+                >
+                  <input
+                    id={cur}
+                    name={cur}
+                    type={cur}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    className={styles.AdminInput}
+                    value={formik.values[cur]}
+                  />
+                  <label
+                    htmlFor={cur}
+                    className={styles.AdminLabel}
+                  >
+                    {cur}
+                  </label>
+                  {formik.touched[cur] &&
+                  formik.errors[cur] ? (
+                    <div className={styles.AdminError}>
+                      {formik.errors[cur]}
+                    </div>
+                  ) : null}
                 </div>
-              ) : null}
+              ))}
+              <button
+                type="submit"
+                className={styles.AdminBtn}
+              >
+                Login
+              </button>
+
+              {loadingState ? <Spinner /> : null}
               <div>{formError}</div>
-              <button type="submit">Login</button>
             </form>
-          </div>
+          </Contain>
         )}
       </AdminLayout>
       <Outlet />

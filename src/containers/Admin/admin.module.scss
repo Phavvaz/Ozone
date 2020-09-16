@@ -1,0 +1,67 @@
+.Admin {
+  &Form {
+    margin: 0 auto;
+    border: 2px solid var(--green);
+    max-width: 60rem;
+    padding: 4rem;
+    border-radius: 1rem;
+    text-align: center;
+  }
+
+  &Login {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &Label {
+    padding-left: 1rem;
+    color: var(--green);
+    transform: translateY(-3.5rem);
+    transition: transform 0.5s;
+    text-align: left;
+  }
+
+  &Input {
+    padding: 1rem 2rem;
+    font-size: 2rem;
+    border-radius: 1rem;
+    border: 2px solid var(--green);
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &Input:focus + &Label {
+    transform: translateY(0);
+  }
+
+  &Error {
+    color: red;
+    text-align: left;
+  }
+
+  &Btn {
+    color: var(--green);
+    background-color: #fff;
+    font-size: 1.6rem;
+    padding: 0.5rem 2rem;
+    border-radius: 1rem;
+    border: 2px solid var(--green);
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      background-color: var(--green);
+      color: #fff;
+    }
+  }
+}
