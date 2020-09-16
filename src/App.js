@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import Home from './containers/Home/Home';
 import Cart from './containers/Cart/Cart';
 import Orders from './containers/Orders/Orders';
@@ -11,8 +12,9 @@ import * as action from './store/index';
 import './App.scss';
 
 const App = () => {
+  const dispatch = useDispatch();
   useEffect(() => {
-    action.authCheckState();
+    dispatch(action.authCheckState());
   });
   return (
     <Routes>
