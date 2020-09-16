@@ -34,7 +34,7 @@ const AdminLayout = props => {
         <Contain addStyle={styles.AdminLayoutHeading}>
           <Logo />
 
-          {isLogin ? (
+          {/* {isLogin ? (
             <nav className={styles.AdminLayoutNav}>
               {stateLinks.map(cur => (
                 <NavLink
@@ -45,7 +45,7 @@ const AdminLayout = props => {
                 </NavLink>
               ))}
             </nav>
-          ) : null}
+          ) : null} */}
 
           {isLogin ? (
             <>
