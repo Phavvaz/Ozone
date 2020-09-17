@@ -18,6 +18,9 @@ import {
   restore
 } from '../../../../filepondServer';
 import * as action from '../../../../store/index';
+import Spinner from '../../../../components/spinner/spinner';
+import Contain from '../../../../components/contain/contain';
+import styles from './Addfruit.module.scss';
 
 registerPlugin(
   FilePondPluginImageExifOrientation,
@@ -74,90 +77,83 @@ const AddFruit = () => {
     }
   });
   return (
-    <div>
-      <form onSubmit={formik.handleSubmit}>
-        <div>
-          <label htmlFor="name">Name</label>
-        </div>
-        <div>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.name}
-          />
-        </div>
-        {formik.touched.name && formik.errors.name ? (
-          <div>{formik.errors.name}</div>
-        ) : null}
+    <div className={styles.AddFruit}>
+      <Contain>
+        <form
+          onSubmit={formik.handleSubmit}
+          className={styles.AddFruitForm}
+        >
+          <div className={styles.AddFruitInput}>
+            <label htmlFor="name">Name</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.name}
+            />
+          </div>
+          {formik.touched.name && formik.errors.name ? (
+            <div className={styles.AddFruitError}>
+              {formik.errors.name}
+            </div>
+          ) : null}
 
-        <div>
-          <label htmlFor="description">Description</label>
-        </div>
-        <div>
-          <textarea
-            id="description"
-            name="description"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.description}
-          />
-        </div>
-        {formik.touched.description &&
-        formik.errors.description ? (
-          <div>{formik.errors.description}</div>
-        ) : null}
+          <div className={styles.AddFruitInput}>
+            <label htmlFor="description">Description</label>
+            <textarea
+              id="description"
+              name="description"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.description}
+            />
+          </div>
+          {formik.touched.description &&
+          formik.errors.description ? (
+            <div className={styles.AddFruitError}>
+              {formik.errors.description}
+            </div>
+          ) : null}
 
-        <div>
-          <label htmlFor="price">Price</label>
-        </div>
-        <div>
-          <input
-            id="price"
-            name="price"
-            type="number"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.price}
-          />
-        </div>
-        {formik.touched.price && formik.errors.price ? (
-          <div>{formik.errors.price}</div>
-        ) : null}
+          <div className={styles.AddFruitInput}>
+            <label htmlFor="price">Price</label>
+            <input
+              id="price"
+              name="price"
+              type="number"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.price}
+            />
+          </div>
+          {formik.touched.price && formik.errors.price ? (
+            <div className={styles.AddFruitError}>
+              {formik.errors.price}
+            </div>
+          ) : null}
 
-        <div>
-          <label htmlFor="image">Fruit Image</label>
-        </div>
-
-        <div>
-          <FilePond
-            files={imgUpload}
-            onupdatefiles={fileItems => {
-              // if (fileItems.length === 0) {
-              //   onRequestClear();
-              // }
-              setImgUpload(
-                fileItems.map(fileItem => fileItem.file)
-              );
-            }}
-            allowMultiple={true}
-            maxFiles={5}
-            server="/api"
-            name="files"
-            labelIdle='Drag and Drop your files or <span class="filepond--label-action">Browse</span>'
-            server={{
-              process: (
-                fieldName,
-                file,
-                metadata,
-                load,
-                error,
-                progress,
-                abort
-              ) => {
-                process(
+          <div>
+            <label htmlFor="image">Fruit Image</label>
+            <FilePond
+              className={styles.AddFruitFile}
+              files={imgUpload}
+              onupdatefiles={fileItems => {
+                // if (fileItems.length === 0) {
+                //   onRequestClear();
+                // }
+                setImgUpload(
+                  fileItems.map(fileItem => fileItem.file)
+                );
+              }}
+              allowMultiple={true}
+              maxFiles={5}
+              server="/api"
+              name="files"
+              labelIdle='Drag and Drop your files or <span class="filepond--label-action">Browse</span>'
+              server={{
+                process: (
                   fieldName,
                   file,
                   metadata,
@@ -165,59 +161,70 @@ const AddFruit = () => {
                   error,
                   progress,
                   abort
-                );
-              },
-              load: (
-                source,
-                load,
-                error,
-                progress,
-                abort
-              ) => {
-                loadImg(
+                ) => {
+                  process(
+                    fieldName,
+                    file,
+                    metadata,
+                    load,
+                    error,
+                    progress,
+                    abort
+                  );
+                },
+                load: (
                   source,
                   load,
                   error,
                   progress,
                   abort
-                );
-              },
-              restore: (
-                uniqueFileId,
-                load,
-                error,
-                progress,
-                abort,
-                headers
-              ) => {
-                restore(
+                ) => {
+                  loadImg(
+                    source,
+                    load,
+                    error,
+                    progress,
+                    abort
+                  );
+                },
+                restore: (
                   uniqueFileId,
                   load,
                   error,
                   progress,
                   abort,
                   headers
-                );
-              },
-              revert: (uniqueFileId, load, error) => {
-                if (formError) {
-                  revert(uniqueFileId, load, error);
+                ) => {
+                  restore(
+                    uniqueFileId,
+                    load,
+                    error,
+                    progress,
+                    abort,
+                    headers
+                  );
+                },
+                revert: (uniqueFileId, load, error) => {
+                  if (formError) {
+                    revert(uniqueFileId, load, error);
+                  }
                 }
-              }
-            }}
-          />
-        </div>
-
-        {loadingState ? (
-          <div>
-            <h1>Spinner</h1>
+              }}
+            />
           </div>
-        ) : null}
 
-        <div>{formError}</div>
+          {loadingState ? <Spinner /> : null}
 
-        <button type="submit">Add</button>
-      </form>
+          <div>{formError}</div>
+
+          <button
+            className={styles.AddFruitBtn}
+            type="submit"
+          >
+            Add
+          </button>
+        </form>
+      </Contain>
     </div>
   );
 };

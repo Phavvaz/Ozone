@@ -1,0 +1,74 @@
+@import '../../../../variables';
+
+.AddFruit {
+  overflow-y: scroll;
+
+  &Form {
+    padding-bottom: 5rem;
+
+    & > *:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &Input {
+    display: flex;
+    align-items: flex-start;
+
+    @include respond(phone) {
+      flex-flow: column;
+    }
+
+    & label {
+      flex: 0 0 30%;
+    }
+
+    & input,
+    & textarea {
+      flex: 1;
+      font-size: 2rem;
+      border-radius: 1rem;
+      border: 2px solid var(--green);
+      padding: 1rem 2rem;
+
+      @include respond(phone) {
+        width: 100%;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    & textarea {
+      height: 10rem;
+    }
+  }
+  &Error {
+    text-align: center;
+    color: red;
+  }
+
+  &File {
+    height: 20rem;
+  }
+
+  &Btn {
+    color: var(--green);
+    background-color: #fff;
+    font-size: 1.6rem;
+    padding: 0.5rem 2rem;
+    border-radius: 0.5rem;
+    border: 2px solid var(--green);
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      background-color: var(--green);
+      color: #fff;
+    }
+  }
+}

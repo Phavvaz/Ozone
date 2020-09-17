@@ -83,11 +83,12 @@ const Admin = () => {
               element={<DashBoard />}
             />
             <Route path="/sales" element={<Sales />} />
-            <Route path="/fruit" element={<Fruit />} />
             <Route
-              path="/fruit/addFruit"
+              path="/addFruit"
               element={<AddFruit />}
+              exact
             />
+            <Route path="/fruit" element={<Fruit />} />
             <Route path="/blog" element={<AdminBlog />} />
             <Route path="*" element={<UnknownRoutes />} />
           </Routes>

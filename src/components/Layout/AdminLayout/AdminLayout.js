@@ -25,7 +25,7 @@ const AdminLayout = props => {
     { link: 'dashboard', text: 'DashBoard' },
     { link: 'sales', text: 'Sales' },
     { link: 'fruit', text: 'Fruit' },
-    { link: 'fruit/addFruit', text: 'Add Fruit' },
+    { link: 'addFruit', text: 'Add Fruit' },
     { link: 'blog', text: 'Blog' }
   ])[0];
 

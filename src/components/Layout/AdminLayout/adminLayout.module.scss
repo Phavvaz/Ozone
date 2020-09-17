@@ -6,7 +6,7 @@
   grid-template-columns: 1fr 3.5fr;
   grid-template-rows: auto 1fr 4fr;
   color: var(--green);
-  // overflow: hidden;
+  overflow: hidden;
 
   @include respond(phone) {
     grid-template-columns: 1fr;
