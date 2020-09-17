@@ -93,7 +93,7 @@ const Admin = () => {
           </Routes>
         ) : null}
         {isLogin ? null : (
-          <Contain className={styles.Admin}>
+          <Contain addStyle={styles.Admin}>
             <form
               onReset={formik.handleReset}
               onSubmit={formik.handleSubmit}

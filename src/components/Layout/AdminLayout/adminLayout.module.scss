@@ -1,18 +1,109 @@
+@import '../../../variables';
+
 .AdminLayout {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1fr 3.5fr;
+  grid-template-rows: auto 1fr 4fr;
+  color: var(--green);
+  // overflow: hidden;
+
+  @include respond(phone) {
+    grid-template-columns: 1fr;
+  }
+
   &Heading {
-    display: flex;
-    justify-content: center;
     padding: 2rem 0;
+    grid-column: 1/-1;
+    background-color: rgb(50, 54, 53);
+
+    &Con {
+      display: flex;
+      justify-content: center;
+    }
+
+    @include respond(phone) {
+      padding: 1.5rem 0;
+    }
+  }
+
+  &NavBtn {
+    display: none;
+    height: 4rem;
+    border: none;
+    background-color: transparent;
+    width: 4rem;
+    justify-content: center;
+    align-items: center;
+
+    &:focus {
+      outline: none;
+    }
+
+    & span {
+      position: relative;
+      border-radius: 2rem;
+      height: 0.3rem;
+      display: block;
+      background-color: var(--green);
+      width: 3rem;
+      transition: all 0.5s;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        background-color: var(--green);
+        display: block;
+        height: 0.3rem;
+        width: 3rem;
+        transition: all 0.5s;
+        border-radius: 2rem;
+      }
+
+      &::before {
+        top: -1rem;
+      }
+      &::after {
+        top: 1rem;
+      }
+    }
+
+    @include respond(phone) {
+      display: flex;
+      margin-left: auto;
+    }
   }
 
   &Nav {
-    margin-left: auto;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    grid-column: 1/2;
+    grid-row: 2/-1;
+    display: flex;
+    flex-flow: column;
+    padding: 5rem 0 0 5rem;
+
+    @include respond(phone) {
+      position: absolute;
+      width: 70%;
+      left: -70%;
+      transition: left 0.5s;
+    }
+
+    &Phone {
+      @include respond(phone) {
+        left: 0;
+      }
+    }
   }
 
   &Link:link,
   &Link:visited {
     text-decoration: none;
     text-transform: uppercase;
+    font-size: 2.5rem;
     color: var(--green);
 
     &:not(:last-child) {
@@ -20,10 +111,37 @@
     }
   }
 
-  &Link:hover,
-  &Link.active,
-  &Link:active {
+  &LinkAc:link,
+  &LinkAc:visited {
     color: var(--light-green);
     text-decoration: underline;
+  }
+
+  &Link:hover {
+    color: var(--light-green);
+    text-decoration: underline;
+  }
+
+  &Btn {
+    margin-top: 5rem;
+    background-color: transparent;
+    border: 2px solid red;
+    color: red;
+    font-size: 2.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+      background-color: red;
+      color: white;
+    }
+  }
+
+  &Info {
+    // @include respond(phone) {
+    //   grid-column: 1/-1;
+    // }
   }
 }

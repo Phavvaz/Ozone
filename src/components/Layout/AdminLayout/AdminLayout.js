@@ -6,8 +6,8 @@ import {
   shallowEqual
 } from 'react-redux';
 import Logo from '../../Logo/logo';
-import Contain from '../../contain/contain';
 import * as action from '../../../store/index';
+import Contain from '../../contain/contain';
 
 import styles from './adminLayout.module.scss';
 
@@ -28,55 +28,75 @@ const AdminLayout = props => {
     { link: 'fruit/addFruit', text: 'Add Fruit' },
     { link: 'blog', text: 'Blog' }
   ])[0];
+
+  const [navPhone, setNavPhone] = useState(null);
+
+  const clicked = () => {
+    setNavPhone(
+      navPhone === null ? styles.AdminLayoutNavPhone : null
+    );
+  };
+
   return (
-    <>
-      <div>
-        <Contain addStyle={styles.AdminLayoutHeading}>
+    <div className={styles.AdminLayout}>
+      <div className={styles.AdminLayoutHeading}>
+        <Contain addStyle={styles.AdminLayoutHeadingCon}>
           <Logo />
-
-          {/* {isLogin ? (
-            <nav className={styles.AdminLayoutNav}>
-              {stateLinks.map(cur => (
-                <NavLink
-                  className={styles.AdminLayoutLink}
-                  to={cur.link}
-                >
-                  {cur.text}
-                </NavLink>
-              ))}
-            </nav>
-          ) : null} */}
-
           {isLogin ? (
-            <>
-              <div>
-                <h1>Welcome: admin</h1>
-              </div>
-              <div>
-                <h1>
-                  Date:{' '}
-                  {new Date().toDateString() +
-                    new Date().toLocaleTimeString()}
-                </h1>
-              </div>
-            </>
-          ) : null}
-          {isLogin ? (
-            <div>
-              <button
-                onClick={() => {
-                  dispatch(action.onLogOut());
-                  navigate('/', { replace: true });
-                }}
-              >
-                Logout
-              </button>
-            </div>
+            <button
+              className={styles.AdminLayoutNavBtn}
+              onClick={clicked}
+            >
+              <span>&nbsp;</span>
+            </button>
           ) : null}
         </Contain>
-        {props.children}
       </div>
-    </>
+      {isLogin ? (
+        <nav
+          className={[styles.AdminLayoutNav, navPhone].join(
+            ' '
+          )}
+        >
+          {stateLinks.map(cur => (
+            <NavLink
+              className={styles.AdminLayoutLink}
+              to={cur.link}
+              key={cur.link}
+              activeClassName={styles.AdminLayoutLinkAc}
+              onClick={clicked}
+            >
+              {cur.text}
+            </NavLink>
+          ))}
+          <div>
+            <button
+              className={styles.AdminLayoutBtn}
+              onClick={() => {
+                clicked();
+                dispatch(action.onLogOut());
+                navigate('/admin', { replace: true });
+              }}
+            >
+              Logout
+            </button>
+          </div>
+        </nav>
+      ) : null}
+      {isLogin ? (
+        <div className={styles.AdminLayoutInfo}>
+          <Contain>
+            <h1>Welcome: admin</h1>
+            <div>
+              Date:{' '}
+              {new Date().toDateString() +
+                new Date().toLocaleTimeString()}
+            </div>
+          </Contain>
+        </div>
+      ) : null}
+      {props.children}
+    </div>
   );
 };
 

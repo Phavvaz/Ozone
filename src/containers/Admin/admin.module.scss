@@ -1,12 +1,25 @@
+@import '../../variables';
+
 .Admin {
+  grid-column: 1/-1;
+  grid-row: 2/-1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+
   &Form {
-    margin: 0 auto;
+    margin: 5rem 0;
     // border: 2px solid var(--green);
-    max-width: 60rem;
+    width: 50rem;
     padding: 4rem;
     border-radius: 1rem;
     text-align: center;
     box-shadow: 0 0.5rem 2rem var(--green);
+
+    @include respond(phone) {
+      width: 100%;
+    }
   }
 
   &Login {
