@@ -45,10 +45,15 @@
     font-size: 2rem;
     border-radius: 1rem;
     border: 2px solid var(--green);
-    box-shadow: 0 0.5rem 1rem #0d851360;
 
     &:focus {
       outline: none;
+      background-image: linear-gradient(
+        to right,
+        white,
+        var(--light-green),
+        white
+      );
     }
   }
 
@@ -69,7 +74,6 @@
     border-radius: 1rem;
     border: 2px solid var(--green);
     cursor: pointer;
-    box-shadow: 0 0.5rem 1rem #0d851360;
 
     &:focus {
       outline: none;
