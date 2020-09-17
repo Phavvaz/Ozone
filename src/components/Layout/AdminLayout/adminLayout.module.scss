@@ -9,8 +9,8 @@
   overflow: hidden;
   background-image: linear-gradient(
     to right bottom,
-    rgb(78, 233, 78),
-    rgb(179, 255, 179)
+    #0ccda3 40%,
+    #c1fcd3 60%
   );
 
   @include respond(phone) {
