@@ -1,5 +1,5 @@
 .Fruit {
-  overflow: scroll;
+  overflow-y: scroll;
   padding-bottom: 5rem;
 
   &Con {
@@ -15,6 +15,7 @@
     border: 2px solid var(--green);
     border-radius: 2rem;
     overflow: hidden;
+    background-color: white;
   }
 
   &Bottom {

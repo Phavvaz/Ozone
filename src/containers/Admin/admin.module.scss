@@ -48,12 +48,6 @@
 
     &:focus {
       outline: none;
-      background-image: linear-gradient(
-        to right,
-        white,
-        var(--light-green),
-        white
-      );
     }
   }
 

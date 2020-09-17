@@ -7,6 +7,11 @@
   grid-template-rows: auto 1fr 4fr;
   color: var(--green);
   overflow: hidden;
+  background-image: linear-gradient(
+    to right bottom,
+    rgb(78, 233, 78),
+    rgb(179, 255, 179)
+  );
 
   @include respond(phone) {
     grid-template-columns: 1fr;
